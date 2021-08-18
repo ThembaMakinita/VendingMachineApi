@@ -8,7 +8,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-import static springfox.documentation.builders.PathSelectors.regex;
 
 
 @Configuration
@@ -17,7 +16,12 @@ public class VendSwaggerConfig {
 
     @Bean
     public Docket profileApi(){
-        return new Docket(DocumentationType.SWAGGER_2).select().build();
+        return new Docket(DocumentationType.SWAGGER_2).select().build().apiInfo(metaInfo());
+    }
+
+    private ApiInfo metaInfo() {
+        return new ApiInfoBuilder().title("Themba Vending Machine").description("My Online Vending Machine").
+                termsOfServiceUrl("https://swagger.io/docs").version("1.0").build();
     }
 
 

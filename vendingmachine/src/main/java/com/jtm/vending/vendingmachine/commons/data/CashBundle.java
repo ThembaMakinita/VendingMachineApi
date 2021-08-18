@@ -2,17 +2,19 @@ package com.jtm.vending.vendingmachine.commons.data;
 
 import com.jtm.vending.vendingmachine.commons.constants.Money;
 import lombok.Data;
+import lombok.ToString;
 
 @Data
+@ToString
 public class CashBundle {
 
-    public int numberOf50Cents;
-    public int numberOf1Rands;
-    public int numberOf2Rands;
-    public int numberOf5Rands;
-    public int numberOf10Rands;
-    public int numberOf20Rands;
-    public int numberOf50Rands;
+    private int numberOf50Cents;
+    private int numberOf1Rands;
+    private int numberOf2Rands;
+    private int numberOf5Rands;
+    private int numberOf10Rands;
+    private int numberOf20Rands;
+    private int numberOf50Rands;
 
     public CashBundle(){
     }
@@ -27,19 +29,9 @@ public class CashBundle {
         this.numberOf50Rands = numberOf50Rands;
     }
 
-    public CashBundle (int... enteredMoney){
-        this.numberOf50Cents = enteredMoney[0];
-        this.numberOf1Rands = enteredMoney[1];
-        this.numberOf2Rands = enteredMoney[2];
-        this.numberOf5Rands = enteredMoney[3];
-        this.numberOf10Rands = enteredMoney[4];
-        this.numberOf20Rands = enteredMoney[5];
-        this.numberOf50Rands = enteredMoney[6];
-    }
 
     public double getTotal(){
         double total = 0;
-        System.out.println("****************** YESSS *****************");
         total += numberOf50Cents  * (Money.valueOf("FIFTY_CENTS").getValue());
         total += numberOf1Rands  * (Money.valueOf("ONE_RAND").getValue());
         total += numberOf2Rands  * (Money.valueOf("TWO_RANDS").getValue());

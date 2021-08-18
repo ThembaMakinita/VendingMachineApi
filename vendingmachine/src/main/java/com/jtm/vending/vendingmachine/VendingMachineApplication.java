@@ -1,5 +1,6 @@
 package com.jtm.vending.vendingmachine;
 
+import org.apache.log4j.BasicConfigurator;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 public class VendingMachineApplication {
 
 	public static void main(String[] args) {
+		BasicConfigurator.configure();
 		SpringApplication.run(VendingMachineApplication.class, args);
 	}
 

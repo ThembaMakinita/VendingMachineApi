@@ -1,27 +1,31 @@
 package com.jtm.vending.vendingmachine.database.entities;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
-@Table(name = "Product")
+@Table(name = "Product_Image")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Product implements Serializable {
+public class ProductImage {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "PRODUCT_ID")
-    private long productId;
-    @Column(name = "Name", length = 50)
+    @Column(name = "id")
+    private Long id;
+
+    @Column(name = "name")
     private String name;
-    @Column(name ="Price")
-    private double itemPrice;
-    @Column(name ="Available")
-    private int available;
+
+    @Column(name = "type")
+    private String type;
+
+    @Column(name = "picByte",length = 1000)
+    private byte[] picByte;
+
+
 }
